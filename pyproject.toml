@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "pigimbal"
+version = "1.0.0"
+description = "Smart gimbal control for Raspberry Pi with PID tracking and Kalman filtering"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+authors = [{name = "W-cy"}]
+keywords = ["raspberry-pi", "gimbal", "servo", "tracking", "pid", "kalman"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Image Recognition",
+    "Topic :: System :: Hardware :: Hardware Drivers",
+]
+
+dependencies = [
+    "numpy",
+    "opencv-python",
+]
+
+[project.optional-dependencies]
+hardware = ["RPi.GPIO", "pyserial"]
+full = ["RPi.GPIO", "pyserial", "flask"]
+dev = ["pytest", "opencv-python-headless"]
+
+[project.urls]
+Homepage = "https://github.com/wcy-creator/pigimbal"
+Repository = "https://github.com/wcy-creator/pigimbal"
+Issues = "https://github.com/wcy-creator/pigimbal/issues"
+
+[tool.setuptools.packages.find]
+include = ["pigimbal*"]
